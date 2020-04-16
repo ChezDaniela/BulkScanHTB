@@ -4,6 +4,7 @@ A shell scripting learning project
 I started this project with the intention to automate the initial scans for the machines I am testing at hackinthebox. But in the end it could apply to any other direct scans one might need.
 
 The structure is as follows: script will run from /root/Documents in Kali (or other directory of ones choice). In this directory it assumes the existence of the HTB directory (since it's used for hackinthebox machine/s scanning). 
+
 In the /Documents directory (whene we run the script from/ can be changed if someone is using another path) there should be a .txt file containing all the IP addresses to be scanned, one per line,  which will be given as input for the scanner. 
 Beware: also 1 IP is ok :)
 
