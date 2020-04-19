@@ -6,9 +6,9 @@ then
 	#we are reading the input file for IPs to be scanned
 	read -p "Enter the targets file and its location: " targets
 	#start the initial scan with only SYN to do a fast check which ports are open
-	if [ -f $targets ]
+	if [ -f "$targets" ]
 	then 
-		if [ ! -s $targets ]
+		if [ ! -s "$targets" ]
 		then
 			echo "The file exists, but it's empty"
 		else
@@ -28,7 +28,7 @@ then
 						cat initial-udp-scan.xml |grep -i 'open"' |grep -i "portid=" |cut -d '"' -f 4,5,6| grep -o '[0-9]*' |sort --unique |paste -s -d, > nmap_unique_udp_ports.txt
 				done
 			cd ~/Documents
-			for dir in $(cat $targets | cut -d" " -f2)
+			for dir in $(cut -d" " -f2 "$targets")
 				do 
 					cd ~/Documents/HTB/$repository/$dir
 					if [ $(wc -c <nmap_unique_tcp_ports.txt) -gt 1 ] 
